@@ -31,6 +31,12 @@ All designs adhere to standard RTL design practices, including clean synchronous
 |---------|-------------|--------------|-------------------------------|
 | [Parameterized Traffic Light Controller](./Traffic_Light_Controller/) | Parameterized 3-state Moore Finite State Machine managing intersection signals with custom cycle duration timers | Moore FSM, State Transition Logic, Parameterized Counters, Glitch-Free Outputs | Elaborated, Synthesized (FDRE/LUT), Verified (XSim) |
 
+### Serial Communication & Interfaces
+
+| Project | Description | Key Concepts | Implementation & Verification |
+|---------|-------------|--------------|-------------------------------|
+| [UART Full-Duplex Transceiver](./UART_Transceiver/) | Parameterized 8-N-1 UART transmitter and receiver subsystem with midpoint oversampling and loopback self-checking | Asynchronous Serialization, Midpoint Bit Sampling, 8-N-1 Protocol, FSM Handshaking | Elaborated, Verified (XSim) |
+
 ### Arithmetic & Datapath Units
 
 | Project | Description | Key Concepts | Implementation & Verification |
@@ -74,6 +80,14 @@ Verilog_works/
 │   ├── tb_traffic_light_controller.v      # Self-checking testbench
 │   ├── elaborated_schematic.png           # RTL elaborated schematic
 │   ├── synthesized_schematic.png          # Post-synthesis gate-level schematic
+│   ├── simulation_waveform.png            # Functional simulation waveform
+│   └── simulation_console_log.png         # Testbench verification log
+├── UART_Transceiver/                      # Full-Duplex UART Transmitter & Receiver
+│   ├── README.md                          # Detailed project documentation
+│   ├── uart_tx.v                          # Synthesizable UART transmitter RTL
+│   ├── uart_rx.v                          # Synthesizable UART receiver RTL
+│   ├── tb_uart.v                          # Self-checking loopback testbench
+│   ├── elaborated_schematic.png           # RTL elaborated schematic
 │   ├── simulation_waveform.png            # Functional simulation waveform
 │   └── simulation_console_log.png         # Testbench verification log
 ├── Parameterized_ALU/                     # Parameterized N-bit Arithmetic Logic Unit
