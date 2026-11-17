@@ -19,6 +19,12 @@ All designs adhere to standard RTL design practices, including clean synchronous
 | [Parameterized Register](./Parameterized_Register/) | Parameterized $N$-bit synchronous storage register with prioritized synchronous reset and load enable | Parameterization, Sequential Logic, Priority Decoding, Clock Gating Enable | Elaborated, Synthesized (FDRE), Verified (XSim) |
 | [Parameterized 2-to-1 Multiplexer](./Parameterized_2to1_Multiplexer/) | Parameterized $N$-bit combinational 2-to-1 bus multiplexer with zero-latch decoding | Parameterization, Combinational Logic, Bus Steering, LUT3 Mapping | Elaborated, Synthesized (LUT3), Verified (XSim) |
 
+### Timers & Sequential Datapaths
+
+| Project | Description | Key Concepts | Implementation & Verification |
+|---------|-------------|--------------|-------------------------------|
+| [Digital Stopwatch](./Digital_Stopwatch/) | Precision digital stopwatch with 32-bit parameterized integer frequency prescaler, start/stop hold logic, and 6-bit modulo-60 seconds counter | Clock Prescaling, Modulo-60 Counter, Run/Hold State Gating, Priority Control | Elaborated, Verified (XSim) |
+
 ### FSM & Control Design
 
 | Project | Description | Key Concepts | Implementation & Verification |
@@ -53,6 +59,13 @@ Verilog_works/
 │   ├── multiplexor_test.v                 # Self-checking testbench
 │   ├── elaborated_schematic.png           # RTL elaborated schematic
 │   ├── synthesized_schematic.png          # Post-synthesis gate-level schematic (LUT3)
+│   ├── simulation_waveform.png            # Functional simulation waveform
+│   └── simulation_console_log.png         # Testbench verification log
+├── Digital_Stopwatch/                     # Precision digital stopwatch & prescaler
+│   ├── README.md                          # Detailed project documentation
+│   ├── digital_stopwatch.v                # Synthesizable RTL design
+│   ├── tb_digital_stopwatch.v             # Self-checking testbench
+│   ├── elaborated_schematic.png           # RTL elaborated schematic
 │   ├── simulation_waveform.png            # Functional simulation waveform
 │   └── simulation_console_log.png         # Testbench verification log
 ├── Traffic_Light_Controller/              # Parameterized 3-state Moore FSM
