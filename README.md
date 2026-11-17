@@ -43,6 +43,7 @@ All designs adhere to standard RTL design practices, including clean synchronous
 |---------|-------------|--------------|-------------------------------|
 | [Parameterized ALU](./Parameterized_ALU/) | Parameterized $N$-bit multi-operation Arithmetic Logic Unit with zero-condition detection flag | Arithmetic Addition, Bitwise Logic (AND/XOR), Zero Flag, CARRY4 & LUT6 Mapping | Elaborated, Synthesized (CARRY4/LUT6), Verified (XSim) |
 | [4-Bit Combinational ALU](./ALU_4Bit/) | 4-bit combinational Arithmetic Logic Unit executing addition, subtraction, AND, and OR with wrap-around verification | Combinational Logic, Case Decoding, Modulo-$2^4$ Arithmetic, LUT Mapping | Elaborated, Synthesized (LUT), Verified (XSim) |
+| [2x2 Matrix Multiplier (Shared Datapath)](./Matrix_Multiplier_2x2/) | Area-optimized $2 \times 2$ matrix multiplier utilizing a time-multiplexed shared hardware multiplier across 8 calculation cycles | Resource-Sharing Multiplier, Time-Multiplexed DSP, 17-Bit Accumulation, Handshaking | Elaborated, Verified (XSim) |
 
 ---
 
@@ -97,14 +98,21 @@ Verilog_works/
 │   ├── elaborated_schematic.png           # RTL elaborated schematic
 │   ├── synthesized_schematic.png          # Post-synthesis gate-level schematic (CARRY4/LUT6)
 │   └── simulation_waveform.png            # Functional simulation waveform
-└── ALU_4Bit/                              # 4-bit Combinational Arithmetic Logic Unit
+├── ALU_4Bit/                              # 4-bit Combinational Arithmetic Logic Unit
+│   ├── README.md                          # Detailed project documentation
+│   ├── alu_4bit.v                         # Synthesizable RTL design
+│   ├── tb_alu_4bit.v                      # Self-checking testbench
+│   ├── elaborated_schematic.png           # RTL elaborated schematic
+│   ├── synthesized_schematic.png          # Post-synthesis gate-level schematic
+│   ├── simulation_waveform.png            # Functional simulation waveform
+│   └── simulation_console_log.png         # Testbench verification log
+└── Matrix_Multiplier_2x2/                 # 2x2 Matrix Multiplier (Shared Multiplier)
     ├── README.md                          # Detailed project documentation
-    ├── alu_4bit.v                         # Synthesizable RTL design
-    ├── tb_alu_4bit.v                      # Self-checking testbench
+    ├── matrix_multiplier_2x2_shared.v     # Synthesizable matrix multiplier RTL
+    ├── tb_matrix_multiplier_2x2.v         # Self-checking testbench
     ├── elaborated_schematic.png           # RTL elaborated schematic
-    ├── synthesized_schematic.png          # Post-synthesis gate-level schematic
-    ├── simulation_waveform.png            # Functional simulation waveform
-    └── simulation_console_log.png         # Testbench verification log
+    ├── simulation_waveform_overview.png   # Full calculation waveform
+    └── simulation_waveform_handshake.png  # Handshake timing detail waveform
 ```
 
 ---
