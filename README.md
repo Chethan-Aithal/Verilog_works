@@ -24,6 +24,7 @@ All designs adhere to standard RTL design practices, including clean synchronous
 | Project | Description | Key Concepts | Implementation & Verification |
 |---------|-------------|--------------|-------------------------------|
 | [Parameterized ALU](./Parameterized_ALU/) | Parameterized $N$-bit multi-operation Arithmetic Logic Unit with zero-condition detection flag | Arithmetic Addition, Bitwise Logic (AND/XOR), Zero Flag, CARRY4 & LUT6 Mapping | Elaborated, Synthesized (CARRY4/LUT6), Verified (XSim) |
+| [4-Bit Combinational ALU](./ALU_4Bit/) | 4-bit combinational Arithmetic Logic Unit executing addition, subtraction, AND, and OR with wrap-around verification | Combinational Logic, Case Decoding, Modulo-$2^4$ Arithmetic, LUT Mapping | Elaborated, Synthesized (LUT), Verified (XSim) |
 
 ---
 
@@ -48,13 +49,21 @@ Verilog_works/
 │   ├── synthesized_schematic.png          # Post-synthesis gate-level schematic (LUT3)
 │   ├── simulation_waveform.png            # Functional simulation waveform
 │   └── simulation_console_log.png         # Testbench verification log
-└── Parameterized_ALU/                     # Parameterized N-bit Arithmetic Logic Unit
+├── Parameterized_ALU/                     # Parameterized N-bit Arithmetic Logic Unit
+│   ├── README.md                          # Detailed project documentation
+│   ├── alu.v                              # Synthesizable RTL design
+│   ├── alu_test.v                         # Self-checking testbench
+│   ├── elaborated_schematic.png           # RTL elaborated schematic
+│   ├── synthesized_schematic.png          # Post-synthesis gate-level schematic (CARRY4/LUT6)
+│   └── simulation_waveform.png            # Functional simulation waveform
+└── ALU_4Bit/                              # 4-bit Combinational Arithmetic Logic Unit
     ├── README.md                          # Detailed project documentation
-    ├── alu.v                              # Synthesizable RTL design
-    ├── alu_test.v                         # Self-checking testbench
+    ├── alu_4bit.v                         # Synthesizable RTL design
+    ├── tb_alu_4bit.v                      # Self-checking testbench
     ├── elaborated_schematic.png           # RTL elaborated schematic
-    ├── synthesized_schematic.png          # Post-synthesis gate-level schematic (CARRY4/LUT6)
-    └── simulation_waveform.png            # Functional simulation waveform
+    ├── synthesized_schematic.png          # Post-synthesis gate-level schematic
+    ├── simulation_waveform.png            # Functional simulation waveform
+    └── simulation_console_log.png         # Testbench verification log
 ```
 
 ---
